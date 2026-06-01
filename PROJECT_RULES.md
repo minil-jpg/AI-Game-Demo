@@ -47,6 +47,28 @@
 
 ---
 
+# Unity Best Practices
+
+## Collider Consistency
+
+* Collider bounds must closely match the visible sprite or intended gameplay shape.
+* After creating or modifying prefabs, verify collider size, offset, and scale.
+* Avoid manually oversized colliders unless explicitly required by gameplay.
+* When using placeholder sprites, ensure BoxCollider2D or CircleCollider2D dimensions are reviewed after scaling.
+* Verify collider visualization in the Scene view before considering a prefab complete.
+
+## Physics Prefab Validation
+
+Whenever creating a new physics-based prefab:
+
+* Verify collider size matches visuals.
+* Verify Rigidbody2D settings are appropriate for the object's role.
+* Verify mass, damping, and material values.
+* Verify the object behaves correctly when placed in a simple test scene.
+* Explain any non-default physics settings that are applied.
+
+---
+
 # Unity MCP + AI Tool Usage Rules
 
 ## Script Creation
