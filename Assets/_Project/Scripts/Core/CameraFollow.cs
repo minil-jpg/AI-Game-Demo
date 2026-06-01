@@ -35,6 +35,17 @@ namespace BirdGame
             }
         }
 
+        public void OnBirdReset()
+        {
+            hasSettled = false;
+            isFollowing = false;
+
+            Vector3 pos = transform.position;
+            pos.x = slingshotPivot.position.x + offsetX;
+            pos.y = baseY;
+            transform.position = pos;
+        }
+
         private void LateUpdate()
         {
             if (birdLauncher == null || slingshotPivot == null) return;

@@ -551,6 +551,8 @@ GameObject:
   - component: {fileID: 1712877925}
   - component: {fileID: 1712877928}
   - component: {fileID: 1712877927}
+  - component: {fileID: 1712877930}
+  - component: {fileID: 1712877929}
   m_Layer: 0
   m_Name: Bird_Red
   m_TagString: Untagged
@@ -867,6 +869,35 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1712877929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712877919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b033294d789664a43affe18ef2a13ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BirdGame.BirdResetInput
+  birdLauncher: {fileID: 1712877926}
+  cameraFollow: {fileID: 130821268}
+--- !u!114 &1712877930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712877919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182c07204b7a7934692dbe68aca610d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BirdGame.BirdAutoReset
+  birdLauncher: {fileID: 1712877926}
+  cameraFollow: {fileID: 130821268}
+  resetDelay: 2
 --- !u!1 &1749478434
 GameObject:
   m_ObjectHideFlags: 0

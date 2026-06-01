@@ -89,6 +89,16 @@ namespace BirdGame
             return GetLaunchForceFromPosition(birdPosition) / rb.mass;
         }
 
+        public void ResetToLaunchPoint()
+        {
+            rb.WakeUp();
+
+            SetupInitialState();
+
+            transform.position = launchPoint.position;
+            transform.rotation = Quaternion.identity;
+        }
+
         /// <summary>
         /// Launches the bird based on its current position relative to the launch point.
         /// Called by the DragHandler.
