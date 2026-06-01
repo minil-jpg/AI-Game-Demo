@@ -88,3 +88,6 @@ Example commits:
 * Avoid unnecessary complexity
 * Prefer readability over cleverness
 * Test after every generated feature
+
+---
+*Test change for git-autocommit skill.*

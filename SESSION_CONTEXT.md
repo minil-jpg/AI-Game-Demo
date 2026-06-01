@@ -243,5 +243,6 @@ Completed:
 * Block_Wood_Small / Medium / Long (bird-relative sizes)
 * Wood_PhysicsMaterial2D
 * TestTower structure (rotated legs + top beam)
+* git-autocommit skill and opencode config
 
 Project has environment interaction (blocks, test structures) ready.
