@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 130821265}
   - component: {fileID: 130821267}
   - component: {fileID: 130821266}
+  - component: {fileID: 130821268}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -211,6 +212,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &130821268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130821264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49019d92c28fc3b4bbd3b35b84538466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BirdGame.CameraFollow
+  birdLauncher: {fileID: 1712877926}
+  slingshotPivot: {fileID: 1440456157}
+  followSpeed: 3
+  stopSpeedThreshold: 0.1
 --- !u!1 &469140331
 GameObject:
   m_ObjectHideFlags: 0
