@@ -18,6 +18,8 @@
 * Avoid tightly coupled systems
 * Avoid static managers unless approved
 * Avoid singletons unless absolutely necessary
+* Prefer explicit references over globals
+* Keep systems beginner-friendly and readable
 
 ---
 
@@ -41,6 +43,82 @@
 * Use Rigidbody2D physics
 * Use prefabs for reusable objects
 * Keep inspector clean and organized
+* Use tags, layers, or explicit references for gameplay classification; avoid checking GameObject names in gameplay logic
+
+---
+
+# Unity MCP + AI Tool Usage Rules
+
+## Script Creation
+
+For creating or editing C# scripts:
+
+* prefer direct filesystem editing
+* avoid Unity MCP unless Unity-specific operations are required
+* do not use Unity MCP for simple script generation
+* generate .cs files directly in workspace when possible
+
+Unity MCP should NOT be the default tool for:
+
+* gameplay script generation
+* architecture implementation
+* refactors
+* utility classes
+* enum/data classes
+
+---
+
+## Unity MCP Usage
+
+Use Unity MCP ONLY for:
+
+* scene creation
+* hierarchy setup
+* component attachment
+* inspector reference assignment
+* prefab operations
+* physics/component configuration
+* Play Mode operations
+* asset refresh operations
+
+---
+
+## Prompt Interpretation Rules
+
+When a request includes both code generation and Unity scene setup:
+
+1. create/edit scripts directly in filesystem first
+2. use Unity MCP afterward only for Unity Editor interactions
+
+Minimize unnecessary MCP operations.
+
+Avoid:
+
+* repeated hierarchy queries
+* unnecessary asset refreshes
+* re-reading unchanged scene data
+* excessive verification operations
+
+---
+
+# Verification Rules
+
+Allowed verification:
+
+* scripts compile
+* no console errors
+* references assigned
+* scene enters Play Mode
+* required methods connected
+
+Do NOT claim gameplay behavior was tested unless runtime interaction was actually simulated.
+
+Disallowed claims unless actually tested:
+
+* gameplay feels good
+* controls are responsive
+* launch behavior visually confirmed
+* physics feels correct
 
 ---
 
@@ -53,6 +131,8 @@
 * Return full scripts instead of partial snippets
 * Keep code beginner-friendly and readable
 * Avoid overengineering
+* Prefer small incremental implementations
+* Placeholder-first workflow preferred
 
 ---
 
@@ -77,6 +157,7 @@
 * MainMenu
 * Level_01
 * Sandbox
+* Gameplay
 
 ---
 

@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 1134284756}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,13 +664,8 @@ MonoBehaviour:
   rb: {fileID: 1712877923}
   maxDragDistance: 2
   launchForceMultiplier: 10
-  airLinearDamping: 0
-  airAngularDamping: 0.2
-  groundLinearDamping: 2
-  groundAngularDamping: 5
-  sleepLinearSpeedThreshold: 0.05
-  sleepAngularSpeedThreshold: 5
-  groundTag: Ground
+  settledSpeedThreshold: 0.2
+  stopDelay: 0.2
   groundNormalThreshold: 0.5
 --- !u!1 &1749478434
 GameObject:

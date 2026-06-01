@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 1134284756}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 538e0aacd38ead94ba9ca8922aadfe0d, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -354,7 +354,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
 --- !u!212 &1134284757
 SpriteRenderer:
@@ -586,7 +586,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.2
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -597,7 +597,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &1712877924
 CircleCollider2D:
@@ -609,7 +609,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 538e0aacd38ead94ba9ca8922aadfe0d, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -664,14 +664,6 @@ MonoBehaviour:
   rb: {fileID: 1712877923}
   maxDragDistance: 2
   launchForceMultiplier: 10
-  airLinearDamping: 0
-  airAngularDamping: 0.2
-  groundLinearDamping: 2
-  groundAngularDamping: 5
-  sleepLinearSpeedThreshold: 0.05
-  sleepAngularSpeedThreshold: 5
-  groundTag: Ground
-  groundNormalThreshold: 0.5
 --- !u!1 &1749478434
 GameObject:
   m_ObjectHideFlags: 0
