@@ -9,6 +9,8 @@ namespace BirdGame
     [RequireComponent(typeof(Rigidbody2D))]
     public class BirdLauncher : MonoBehaviour
     {
+        private const float LaunchGravityScale = 1f;
+
         [Header("References")]
         [SerializeField] private Transform launchPoint;
         [SerializeField] private Rigidbody2D rb;
@@ -31,6 +33,7 @@ namespace BirdGame
         private bool isGrounded;
 
         public BirdState CurrentState => currentState;
+        public Vector2 LaunchGravity => Physics2D.gravity * LaunchGravityScale;
 
         private void Awake()
         {
@@ -65,13 +68,25 @@ namespace BirdGame
             if (currentState == BirdState.Launched) return;
 
             currentState = BirdState.Dragging;
+            transform.position = GetConstrainedDragPosition(worldPosition);
+        }
 
+        public Vector2 GetConstrainedDragPosition(Vector3 worldPosition)
+        {
             Vector2 offset = worldPosition - launchPoint.position;
-            
-            // Constrain bird within max drag distance
             Vector2 constrainedOffset = Vector2.ClampMagnitude(offset, maxDragDistance);
-            
-            transform.position = (Vector2)launchPoint.position + constrainedOffset;
+
+            return (Vector2)launchPoint.position + constrainedOffset;
+        }
+
+        public Vector2 GetLaunchForceFromPosition(Vector2 birdPosition)
+        {
+            return ((Vector2)launchPoint.position - birdPosition) * launchForceMultiplier;
+        }
+
+        public Vector2 GetLaunchVelocityFromPosition(Vector2 birdPosition)
+        {
+            return GetLaunchForceFromPosition(birdPosition) / rb.mass;
         }
 
         /// <summary>
@@ -87,16 +102,12 @@ namespace BirdGame
 
             // Enable physics
             rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.gravityScale = 1f;
+            rb.gravityScale = LaunchGravityScale;
             rb.linearDamping = airLinearDamping;
             rb.angularDamping = airAngularDamping;
 
-            // Calculate force: vector from bird to launch point
-            Vector2 forceDirection = (Vector2)launchPoint.position - (Vector2)transform.position;
-            Vector2 launchForce = forceDirection * launchForceMultiplier;
-
             // Apply impulse force
-            rb.AddForce(launchForce, ForceMode2D.Impulse);
+            rb.AddForce(GetLaunchForceFromPosition(transform.position), ForceMode2D.Impulse);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
