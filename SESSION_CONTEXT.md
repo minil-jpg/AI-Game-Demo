@@ -115,6 +115,13 @@ Status:
 Gameplay
 
 * Environment
+
+  * Ground
+  * TestTower
+
+    * Block_Wood_Long_LeftLeg
+    * Block_Wood_Long_RightLeg
+    * Block_Wood_Medium_TopBeam
 * Slingshot
 
   * LaunchPoint
@@ -131,11 +138,14 @@ Gameplay
 
 Birds:
 
-* Bird_Red
+* Bird_Red (scene instance, no prefab asset)
 
 Blocks:
 
-* None yet (next task)
+* Block_Wood — base plank (2.0, 0.5) scale → 0.32 × 0.08 world. Mass 1.
+* Block_Wood_Small — 2× bird diameter wide, 0.5× tall → 0.60 × 0.15 world. Mass 3.52.
+* Block_Wood_Medium — 4× bird diameter wide, 0.5× tall → 1.20 × 0.15 world. Mass 7.03.
+* Block_Wood_Long — 8× bird diameter wide, 0.5× tall → 2.40 × 0.15 world. Mass 14.06.
 
 ---
 
@@ -145,6 +155,16 @@ Bird uses:
 
 * Rigidbody2D
 * CircleCollider2D
+* Bird_Red world diameter: 0.30 (local bounds 0.20 × scale 1.5)
+
+Blocks use:
+
+* Rigidbody2D (Dynamic)
+* BoxCollider2D (local size 0.16 × 0.16 matches sprite local bounds)
+* Wood_PhysicsMaterial2D (shared across all block variants)
+* Density ~39.1 (mass scales with area)
+
+All block colliders verified matching sprite bounds.
 
 BirdLauncher currently contains:
 
@@ -178,23 +198,22 @@ Must Follow:
 
 # Current Goal
 
-Create first reusable wooden block prefab.
+Create reusable wooden block prefabs and test structures.
 
-Requirements:
+Completed:
 
-* Placeholder visuals
-* Rigidbody2D
-* BoxCollider2D
-* PhysicsMaterial2D
-* Stable stacking behavior
-* Suitable for future structures
+* Block_Wood base prefab with BoxCollider2D matching sprite
+* Block_Wood_Small / Medium / Long variants (sized to bird diameter)
+* Wood_PhysicsMaterial2D for consistent physics
+* TestTower structure (2 vertical Long legs + Medium beam on top)
+* Collider-world-size matching verified on all prefabs
 
 ---
 
 # Next Planned Milestones
 
-1. Wooden Block Prefab
-2. Block Structures
+1. ✅ Wooden Block Prefab (base + 3 sizes)
+2. ✅ Block Structures (TestTower)
 3. Pig Prefab
 4. Collision Damage
 5. Pig Death
@@ -207,8 +226,7 @@ Requirements:
 
 # Known Issues
 
-* Block_Wood collider currently appears larger than visual sprite.
-* Needs investigation and correction so collider matches rendered dimensions.
+* None currently known.
 
 ---
 
@@ -221,5 +239,9 @@ Completed:
 * Trajectory prediction
 * Camera follow
 * Bird reset system
+* Block_Wood prefab (collider fix)
+* Block_Wood_Small / Medium / Long (bird-relative sizes)
+* Wood_PhysicsMaterial2D
+* TestTower structure (rotated legs + top beam)
 
-Project is ready to begin environment interaction and target gameplay.
+Project has environment interaction (blocks, test structures) ready.
